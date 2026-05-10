@@ -1,8 +1,15 @@
-"""Fastmcp fixture: minimal echo + widget tool exposed via streamable HTTP."""
+"""Fastmcp fixture: echo tool + Prefab UI greet widget.
+
+Follows the recommended FastMCP Apps pattern:
+- ``@mcp.tool(app=True)`` returning a ``PrefabApp`` for the widget tool
+- Plain ``@mcp.tool`` for the text-only echo tool
+
+See https://gofastmcp.com/apps/prefab for the full pattern.
+"""
 
 from fastmcp import FastMCP
-from mcp.types import EmbeddedResource, TextContent, TextResourceContents
-from pydantic import AnyUrl
+from prefab_ui.app import PrefabApp
+from prefab_ui.components import Card, CardContent, Column, Heading, Muted
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
@@ -19,26 +26,20 @@ def echo(text: str) -> str:
     return text
 
 
-@mcp.tool
-def greet_widget(name: str) -> list[TextContent | EmbeddedResource]:
-    """Greet someone and return an HTML widget rendered by the MCP client."""
-    html = (
-        '<!doctype html><html><body style="font:16px/1.4 system-ui;padding:24px">'
-        f'<h1 style="margin:0 0 8px">Hello, {name}!</h1>'
-        '<p style="color:#555">Greeting widget served by mcp-detect-fastmcp.</p>'
-        '</body></html>'
-    )
-    return [
-        TextContent(type="text", text=f"Hello, {name}!"),
-        EmbeddedResource(
-            type="resource",
-            resource=TextResourceContents(
-                uri=AnyUrl(f"ui://greet/{name}"),
-                mimeType="text/html",
-                text=html,
-            ),
-        ),
-    ]
+@mcp.tool(app=True)
+def greet_widget(name: str) -> PrefabApp:
+    """Greet someone and render a Prefab UI greeting card.
+
+    Renders an interactive UI in MCP Apps-capable hosts (ChatGPT, Claude, etc.)
+    via FastMCP's Prefab UI integration.
+    """
+    with Column(gap=4, css_class="p-6") as view:
+        with Card():
+            with CardContent():
+                Heading(f"Hello, {name}!")
+                Muted("Greeting widget served by mcp-detect-fastmcp.")
+
+    return PrefabApp(view=view)
 
 
 @mcp.custom_route("/health", methods=["GET"])
@@ -46,9 +47,6 @@ async def health_check(request: Request) -> JSONResponse:
     return JSONResponse({"status": "healthy"})
 
 
-# Run in ASGI mode in production. Keep `app` defined unconditionally so
-# `uvicorn src.server:app` works in any environment (cloud or local) — the
-# config-driven `production` toggle is a relic of the original starter.
-# `stateless_http=True` so each request handles its own MCP session (matches
-# the streamable-HTTP fixtures used by the cloud post-deploy /mcp probe).
+# Streamable-HTTP ASGI app (mounted at /mcp by FastMCP). `stateless_http=True`
+# so each request handles its own MCP session (matches the post-deploy probe).
 app = mcp.http_app(stateless_http=True)
