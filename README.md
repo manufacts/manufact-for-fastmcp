@@ -2,9 +2,9 @@
 
 <div align="center">
 
-# ⚡ FastMCP MCP Apps fixture
+# ⚡ FastMCP MCP Apps example
 
-**Reference server for the [FastMCP deploy guide](https://mcp-use.com/blog/mcp-app-with-fastmcp)** — same `echo` + `greet_widget` fixture used in our [seven-framework comparison](https://mcp-use.com/blog/deploying-seven-mcp-frameworks).
+**Reference server for the [FastMCP deploy guide](https://mcp-use.com/blog/mcp-app-with-fastmcp)** — same `echo` + `greet_widget` example used in our [seven-framework comparison](https://mcp-use.com/blog/deploying-seven-mcp-frameworks).
 
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg?style=for-the-badge&logo=python&logoColor=white)
 ![FastMCP](https://img.shields.io/badge/FastMCP-3.2.4+-blue.svg?style=for-the-badge)
