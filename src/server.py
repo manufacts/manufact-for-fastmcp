@@ -17,7 +17,10 @@ from src.config import get_settings
 
 settings = get_settings()
 
-mcp = FastMCP(name=settings.service_name)
+mcp = FastMCP(
+    name=settings.service_name,
+    instructions="Smoke-test fixture for FastMCP framework detection (MCP Apps).",
+)
 
 
 @mcp.tool

@@ -7,7 +7,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     """Application settings."""
 
-    service_name: str = "MCP Server"
+    service_name: str = "mcp-detect-fastmcp"
     env: Literal["development", "production"] = "development"
 
     model_config = SettingsConfigDict(
