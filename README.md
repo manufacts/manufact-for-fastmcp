@@ -1,4 +1,4 @@
-[![Deploy to mcp-use](https://cdn.mcp-use.com/deploy.svg)](https://mcp-use.com/deploy/start?repository-url=https%3A%2F%2Fgithub.com%2Fmanufacts%2Fmcp-detect-fastmcp&branch=main&project-name=mcp-detect-fastmcp&port=8000&start-command=uvicorn+src.server%3Aapp+--host+0.0.0.0+--port+8000&runtime=python&base-image=python%3A3.12)
+[![Deploy to mcp-use](https://cdn.mcp-use.com/deploy.svg)](https://mcp-use.com/deploy/start?repository-url=https%3A%2F%2Fgithub.com%2Fmanufacts%2Fmanufact-for-fastmcp&branch=main&project-name=manufact-for-fastmcp&port=8000&start-command=uvicorn+src.server%3Aapp+--host+0.0.0.0+--port+8000&runtime=python&base-image=python%3A3.12)
 
 <div align="center">
 
@@ -17,7 +17,7 @@
 
 ## Deploy to Manufact Cloud
 
-Click the badge above, or open the [one-click deploy flow](https://mcp-use.com/deploy/start?repository-url=https%3A%2F%2Fgithub.com%2Fmanufacts%2Fmcp-detect-fastmcp&branch=main&project-name=mcp-detect-fastmcp&port=8000&start-command=uvicorn+src.server%3Aapp+--host+0.0.0.0+--port+8000&runtime=python&base-image=python%3A3.12). Sign in, connect GitHub, and Manufact clones this repo into your account and deploys it.
+Click the badge above, or open the [one-click deploy flow](https://mcp-use.com/deploy/start?repository-url=https%3A%2F%2Fgithub.com%2Fmanufacts%2Fmanufact-for-fastmcp&branch=main&project-name=manufact-for-fastmcp&port=8000&start-command=uvicorn+src.server%3Aapp+--host+0.0.0.0+--port+8000&runtime=python&base-image=python%3A3.12). Sign in, connect GitHub, and Manufact clones this repo into your account and deploys it.
 
 If you deploy manually from the dashboard instead:
 
