@@ -9,7 +9,7 @@
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg?style=for-the-badge&logo=python&logoColor=white)
 ![FastMCP](https://img.shields.io/badge/FastMCP-3.2.4+-blue.svg?style=for-the-badge)
 
-**Live demo:** [`warm-wave-cqtmi.run.mcp-use.com/mcp`](https://warm-wave-cqtmi.run.mcp-use.com/mcp)
+**Live demo:** [`fast-zero-2g0gy.run.mcp-use.com/mcp`](https://fast-zero-2g0gy.run.mcp-use.com/mcp)
 
 </div>
 
